@@ -6,6 +6,7 @@ onload=function(){
   var gameover;
   var spend=0;
   var str="";
+  var t=0;
 
   var bootState = function(game){
     this.preload=function(){
@@ -176,13 +177,14 @@ onload=function(){
         }
       }
 
-      var t=0;
+      
       game.time.events.loop(Phaser.Timer.SECOND, function(){
         t=t+1;
-        stime=t;
-        if (t<=10) {
+        stime=t / 1000;
+        console.log('t:' + stime)
+        if (stime<=12) {
           str="速记璐璐"
-        } else if (t>10 & t < 20) {
+        } else if (stime>10 && stime< 20) {
           str="达人璐璐"
         } else {
           str="无名璐璐"
